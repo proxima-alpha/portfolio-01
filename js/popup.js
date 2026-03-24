@@ -384,10 +384,11 @@ function popup(meta) {
             var resource = resources.eq(i);
             var type = resource.find("type").text();
             var path = resource.find("thumb").text();
-            console.log(resource)
-            console.log(path)
-            if (path && typeof path !== 'string') path = path.text();
-            else path = resource.find("path").text();
+            if (!!path) {
+                if (typeof path !== 'string') {
+                    path = path.text();
+                }
+            } else path = resource.find("path").text();
             var div = $(`<div class="image"></div>`);
             div.css({
                 "cursor": "pointer",
